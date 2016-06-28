@@ -2,12 +2,12 @@ package com.assignment.datamembers;
 
 // Data Members are set here.
 public class DataMembers {
-String branchName; 
-String date;
-String comapnyName;
-double branchCode;
-double totalRecon;
-double reconDiff;
+private String branchName; 
+private String date;
+private String comapnyName;
+private double branchCode;
+private double totalRecon;
+private double reconDiff;
 public String getBranchName() {
 	return branchName;
 }
