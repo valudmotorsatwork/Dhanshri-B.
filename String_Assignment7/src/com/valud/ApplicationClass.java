@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ApplicationClass {
 
-	//********************Here We Use Logic Of Sorting To Check String Is Palindrome Or Not**************************
+	//******************Here We Use Logic Of Sorting To Check String Is Palindrome Or Not************************
 	//Here We Take Two Pointer One Is Pointing To 0th character and One Is Pointing To Last Character And Check Character By Character.
 	public boolean logic()
 	{
