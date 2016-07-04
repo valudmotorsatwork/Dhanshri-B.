@@ -14,26 +14,27 @@ public class ApplicationClass {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String show;
-		TreeSet<String> showset = new TreeSet<>();
-		Map<String, TreeSet<String>> networkMap = new HashMap<String, TreeSet<String>>();
+		TreeSet<String> showset= new TreeSet<>();
+		Map<String, TreeSet<String>> networkMap;
 		while (true) {
 			System.out.println("Input tv network:");
 			String networkName = sc.nextLine();
 			System.out.println("Input tv show on:" + networkName);
 			show = sc.nextLine();
+			networkMap = new HashMap<String, TreeSet<String>>();
 			if (networkMap.get(networkName) == null) {
 				showset = new TreeSet<String>(showset);
 				showset.add(show);
 				networkMap.put(networkName, showset);
+				System.out.println(networkMap);
 			} else {
 				showset.add(show);
 			}
-			System.out.println(networkMap);
+			//System.out.println(networkMap);
 			System.out.println("Do YOU Want To Continue yes or no::");
 			String choice = sc.nextLine();
 			if (choice.equals("No") || choice.equals("no"))
 				break;
-
 		}
 			System.out.println("\n     Entry Inserted      \n");
 			System.out.println(networkMap);
