@@ -46,10 +46,12 @@ public class LogicClass extends JFrame implements ActionListener {
 		lb.setBounds(20, 20, 100, 20);
 		tf = new JTextField(20);
 		tf.setBounds(100, 20, 200, 20);
+		tf.setToolTipText("Please Enter Name");
 
 		btnSearch = new JButton("Search");
 		btnSearch.setBounds(350, 20, 100, 20);
 		btnSearch.addActionListener(this);
+		btnSearch.setToolTipText("Please Enter Name Which You Want To Search");
 
 		table = new JTable();
 		table.setBounds(30, 40, 200, 300);
@@ -64,7 +66,7 @@ public class LogicClass extends JFrame implements ActionListener {
 		add(tf);
 		add(btnSearch);
 
-		btnInsert = new JButton("Insert(By Name)");
+		btnInsert = new JButton("Insert");
 		btnInsert.setBounds(20, 250, 140, 20);
 		btnInsert.addActionListener(this);
 
@@ -72,8 +74,9 @@ public class LogicClass extends JFrame implements ActionListener {
 		btnUpdate.setBounds(190, 250, 100, 20);
 		btnUpdate.addActionListener(this);
 
-		btnDelete = new JButton("Delete (By Name)");
-		btnDelete.setBounds(480, 20, 140, 20);
+		btnDelete = new JButton("Delete");
+		btnDelete.setBounds(370, 90,100, 20);
+		btnDelete.setToolTipText("For Deletion You Have Have To Enter Name");
 		btnDelete.addActionListener(this);
 
 		lb5 = new JLabel("Insert Data:");
@@ -81,27 +84,36 @@ public class LogicClass extends JFrame implements ActionListener {
 
 		lb1 = new JLabel("Name:");
 		lb1.setBounds(20, 90, 100, 20);
+		lb1.setToolTipText("enter name here");
+		
 		tf1 = new JTextField(20);
+		tf1.setToolTipText("Please enter country name here");
 		tf1.setBounds(100, 90, 200, 20);
+		
+
 
 		lb2 = new JLabel("Country Code:");
 		lb2.setBounds(20, 120, 100, 20);
 		tf2 = new JTextField(20);
+		tf2.setToolTipText("Please enter country code here");
 		tf2.setBounds(100, 120, 200, 20);
 
 		lb3 = new JLabel("District:");
 		lb3.setBounds(20, 150, 100, 20);
 		tf3 = new JTextField(20);
+		tf3.setToolTipText("Please enter district here");
 		tf3.setBounds(100, 150, 200, 20);
 
 		lb4 = new JLabel("Population:");
 		lb4.setBounds(20, 180, 100, 20);
 		tf4 = new JTextField(20);
+		tf4.setToolTipText("Please enter population here");
 		tf4.setBounds(100, 180, 200, 20);
 
 		lb5 = new JLabel("Id:");
 		lb5.setBounds(20, 210, 100, 20);
 		tf5 = new JTextField(20);
+		tf5.setToolTipText("Please enter id here");
 		tf5.setBounds(100, 210, 200, 20);
 
 		// Add components to the JFrame
@@ -137,11 +149,11 @@ public class LogicClass extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent evt) {
 
 		String action = evt.getActionCommand();
-		if (action.equals("Insert(By Name)")) {
+		if (action.equals("Insert")) {
 			addOperation();
 		} else if (action.equals("Update")) {
 			updateOperation();
-		} else if (action.equals("Delete(By Name)")) {
+		} else if (action.equals("Delete")) {
 			deleteOperation();
 		} else if (action.equals("Search")) {
 			search();
@@ -151,16 +163,16 @@ public class LogicClass extends JFrame implements ActionListener {
 	private void addOperation() {
 		Connection conn = (Connection) ConnectionManager.connectivity();
 		try {
-			String sql = "INSERT INTO City (id,name,countrycode,district,population) " + "Values ('" + tf5.getText()
+				String sql = "INSERT INTO City (id,name,countrycode,district,population) " + "Values ('" + tf5.getText()
 					+ "'," + "'" + tf1.getText() + "'," + "'" + tf2.getText() + "'," + "'" + tf3.getText() + "'," + "'"
 					+ tf4.getText() + "')";
-			Statement st = conn.createStatement();
-			st.execute(sql);
+					Statement st = conn.createStatement();
+					st.execute(sql);
 			JOptionPane.showMessageDialog(null, "Record Added Succesfully.", "Record Added",
 					JOptionPane.INFORMATION_MESSAGE);
 			clearControls();
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Required Field Is Missing","All Fields Are Maditary",JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
