@@ -17,13 +17,14 @@ public class ApplicationClass
 	{
 		Map<String,TreeSet<String>> networkMap = new HashMap<String,TreeSet<String>>();
 		TreeSet<String> showSet = null;
-		Scanner scan = new Scanner(System.in);
-		while (true) 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\n********You have To entered 10 shows In Same Or Different Network. Please try to add Further The Shows in next run*****\n");
+		for(int i=0;i<10;i++)
 		{
 			System.out.print("Input type Network : ");
-			String network = scan.nextLine();
+			String network = sc.nextLine();
     		System.out.print("Input Type Show " + network + ": ");
-    		String show = scan.nextLine();
+    		String show = sc.nextLine();
     		if ( networkMap.get(network) == null) 
     		{
     			showSet = new TreeSet<String>();
@@ -34,24 +35,19 @@ public class ApplicationClass
     		{
     			showSet.add(show);
     		}
-    		System.out.print("Do you want to continue ? Yes/No : ");
-    		String choice = scan.nextLine();
-    		if(choice.equals("no") || choice.equals("NO") ||  choice.equals("nO") ||  choice.equals("No"))
-	        {
-	            break;
-	        }
-	       
+    		System.out.println(networkMap);
 	    }
-		System.out.println("\n 	 	Entry Inserted 	 \n");
+		System.out.println("\n        **************Entry Inserted****************   \n");
 		System.out.println(networkMap);
 	
 		
-		System.out.println("\n 		Sorted Order 	 \n");
+		System.out.println("\n        **************Sorted Order****************\n");
 		ArrayList<String> keyList = new ArrayList<String>(networkMap.keySet());
 		Collections.sort(keyList);
 		for (String networka: keyList) 
 		{
 			System.out.println(networka + ": " + networkMap.get(networka));
-		}		
+		}	
+		System.out.println("\n************Program Completed Successfully******************");
 	}
 }
