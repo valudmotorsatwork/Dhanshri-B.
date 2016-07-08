@@ -54,7 +54,7 @@ public class CityServlet extends HttpServlet {
 		}
 	}
 	
-	//************For Server Side Validation************************
+	//************For Client Side Validation************************
 	public world.domain.City parseRequest(HttpServletRequest request)
 	{
 		world.domain.City city=new world.domain.City();
