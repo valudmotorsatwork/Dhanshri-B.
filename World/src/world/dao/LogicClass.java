@@ -46,7 +46,7 @@ public class LogicClass extends JFrame implements ActionListener {
 		lb.setBounds(20, 20, 100, 20);
 		tf = new JTextField(20);
 		tf.setBounds(100, 20, 200, 20);
-		tf.setToolTipText("Please Enter Name");
+		tf.setToolTipText("Please Enter Name Of Country Which You Want To Find");
 
 		btnSearch = new JButton("Search");
 		btnSearch.setBounds(350, 20, 100, 20);
@@ -76,7 +76,7 @@ public class LogicClass extends JFrame implements ActionListener {
 
 		btnDelete = new JButton("Delete");
 		btnDelete.setBounds(370, 90,100, 20);
-		btnDelete.setToolTipText("For Deletion You Have Have To Enter Name");
+		btnDelete.setToolTipText("For Deletion You Have To Enter Name");
 		btnDelete.addActionListener(this);
 
 		lb5 = new JLabel("Insert Data:");
